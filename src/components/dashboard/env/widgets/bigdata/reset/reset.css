@@ -1,0 +1,28 @@
+.el-table tbody tr:hover>td {
+  background: none !important
+}
+.gutter {
+  background: none;
+}
+.wrapper .el-table tbody tr{background: none;color: #f8f8f8;}
+.wrapper .el-table td{border-bottom: 1px solid #2c3657;}
+.wrapper .el-table thead tr{background: none;}
+
+.wrapper .el-table thead tr th{background: none;color: #5F88F2;}
+
+.wrapper  .el-table th.is-leaf{border:none;border-top: 1px solid #252a45;border-bottom: 1px solid #252a45;background: #2d385a;}
+.wrapper  .el-table th.is-leaf:nth-child(1){border-left: 1px solid #252a45;}
+.wrapper  .el-table th.is-leaf:nth-last-child{border-right: 1px solid #252a45;}
+.wrapper *{box-sizing: border-box;}
+/*.towerWrapper .el-table--scrollable-x .el-table__body-wrapper {
+    overflow-x: unset;
+}
+.towerWrapper .el-table__body-wrapper {
+    overflow: unset;
+}
+.towerWrapper .el-table{
+	overflow: unset;
+}
+.towerWrapper .el-table__header-wrapper{
+	overflow: unset;
+}*/

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+  <link rel="stylesheet" href="<%= BASE_URL %>cdn/element-ui/2.13.2/theme-chalk/index.css">
+  <link rel="stylesheet" href="<%= BASE_URL %>cdn/animate/3.5.2/animate.css">
+  <link rel="stylesheet" href="<%= BASE_URL %>cdn/iconfont/1.0.0/index.css">
+  <link rel="stylesheet" href="<%= BASE_URL %>cdn/avue/2.6.1/index.css">
+  <script src="<%= BASE_URL %>cdn/xlsx/FileSaver.min.js"></script>
+  <script src="<%= BASE_URL %>cdn/xlsx/xlsx.full.min.js"></script>
+  <!--政务云内网天地图js-->
+  <!-- <link href="http://2.20.101.190:18081/wx-cloud-development/static/geolmap/dist/GeoLMap.min.css" rel="stylesheet" />
+  <script src="http://2.20.101.190:808/wx-cloud-development/static/geolmap/dist/GeoLMap.min.js"></script>
+  <script src="http://2.20.101.190:8081/wx-cloud-development/static/geolmap/dist/config.js"></script> -->
+  <!--<link rel="stylesheet" href="<%= BASE_URL %>cdn/tianditu-wx/GeoLMap.min.css" />
+  <script src="<%= BASE_URL %>cdn/tianditu-wx/GeoLMap.min.js"></script>
+  <script src="<%= BASE_URL %>cdn/tianditu-wx/config.js"></script>-->
+  <!--政务云内网天地图js-->
+  <!--<script src="<%= BASE_URL %>cdn/tianditu-wx-remote/GeoLMap.min.js"></script>
+  <script src="<%= BASE_URL %>cdn/tianditu-wx-remote/config.js"></script>-->
+  <script>
+    //根据动态加载天地图脚本文件
+    if(location.origin.indexOf('http://2.20')>-1){
+      //政务内网
+      let GeoLMap_min = document.createElement('script');
+      GeoLMap_min.type = 'text/javascript';
+      GeoLMap_min.src = "/cdn/tianditu-wx/GeoLMap.min.js";
+      document.getElementsByTagName('head')[0].appendChild(GeoLMap_min);
+
+      let config = document.createElement('script');
+      config.type = 'text/javascript';
+      config.src = "/cdn/tianditu-wx/config.js";
+      document.getElementsByTagName('head')[0].appendChild(config);
+
+      let link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = "/cdn/tianditu-wx/GeoLMap.min.css";
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }else{
+      //外网环境
+      let GeoLMap_min = document.createElement('script');
+      GeoLMap_min.type = 'text/javascript';
+      GeoLMap_min.src = "/cdn/tianditu-wx-remote/GeoLMap.min.js";
+      document.getElementsByTagName('head')[0].appendChild(GeoLMap_min);
+
+      let link = document.createElement('link');link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = "/cdn/tianditu-wx-remote/GeoLMap.min.css";
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  </script>
+  <link rel="shortcut icon" type="image/x-icon" href="/img/bg/huanbao.png">
+  <title>大气立体监测综合管控平台</title>
+  <style>
+    html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .avue-home {
+      background-color: #303133;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .avue-home__main {
+      user-select: none;
+      width: 100%;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .avue-home__footer {
+      width: 100%;
+      flex-grow: 0;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    .avue-home__footer > a {
+      font-size: 12px;
+      color: #ABABAB;
+      text-decoration: none;
+    }
+
+    .avue-home__loading {
+      height: 32px;
+      width: 32px;
+      margin-bottom: 20px;
+    }
+
+    .avue-home__title {
+      color: #FFF;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .avue-home__sub-title {
+      color: #ABABAB;
+      font-size: 12px;
+    }
+    /* .leaflet-tile-container img {
+		-webkit-filter: sepia(60%) invert(100%);
+		-moz-filter: sepia(60%) invert(100%);
+		-ms-filter: sepia(60%) invert(100%);
+		-o-filter: sepia(60%) invert(100%);
+		filter: gray sepia(60%) invert(100%);
+		opacity: 0.8 !important;
+	  } */
+	/* .leaflet-tile-container img {
+            -webkit-filter: grayscale(100%) invert(100%);
+            -moz-filter: grayscale(100%) invert(100%);
+            -ms-filter: grayscale(100%) invert(100%);
+            -o-filter: grayscale(100%) invert(100%);
+            filter: gray grayscale(100%) invert(100%);
+            opacity: 0.8 !important;
+        } */
+  </style>
+  <script  type="text/javascript">
+  </script>
+
+</head>
+
+<body>
+<noscript>
+  <strong>
+
+  </strong>
+</noscript>
+<div id="app">
+  <div class="avue-home">
+    <div class="avue-home__main">
+      <img class="avue-home__loading" src="<%= BASE_URL %>svg/loading-spin.svg" alt="loading">
+      <div class="avue-home__title">
+        正在加载资源
+      </div>
+      <div class="avue-home__sub-title d">
+        初次加载资源可能需要较多时间 请耐心等待
+      </div>
+    </div>
+    <div class="avue-home__footer"></div>
+  </div>
+</div>
+<!-- built files will be auto injected -->
+<script src="<%= BASE_URL %>util/aes.js" charset="utf-8"></script>
+<script src="<%= BASE_URL %>cdn/vue/2.6.10/vue.min.js" charset="utf-8"></script>
+<script src="<%= BASE_URL %>cdn/vuex/3.1.1/vuex.min.js" charset="utf-8"></script>
+<script src="<%= BASE_URL %>cdn/vue-router/3.0.1/vue-router.min.js" charset="utf-8"></script>
+<script src="<%= BASE_URL %>cdn/axios/1.0.0/axios.min.js" charset="utf-8"></script>
+<script src="<%= BASE_URL %>cdn/element-ui/2.13.2/index.js" charset="utf-8"></script>
+<script src="<%= BASE_URL %>cdn/avue/2.6.1/avue.min.js" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="//api.map.baidu.com/api?v=3.0&ak=pr9OvF8jfWcvEpojMlYuOWKCzccuaesn"></script> -->
+<!-- <script src="http://mapv.baidu.com/build/mapv.min.js"></script> -->
+<!-- 远程请求资源包 -->
+<!-- <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script> -->
+<!-- <script src="<%= BASE_URL %>cdn/assets/echarts-wordcloud.min.js" charset="utf-8"></script> -->
+<script src='<%= BASE_URL %>cdn/echarts/echarts.min.js'></script>
+
+</body>
+
+</html>

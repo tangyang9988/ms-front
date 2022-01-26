@@ -1,0 +1,119 @@
+export const column = [{
+	label: '区域',
+	prop: 'area',
+	align: 'center'
+}, {
+	label: '站点',
+	prop: 'siteName',
+	align: 'center',
+	overHidden: true,
+	width: 140
+}, {
+	label: '机组',
+	prop: 'groupName',
+	align: 'center',
+	hide: true
+}, {
+	label: '设备编码',
+	prop: 'deviceSn',
+	align: 'center'
+}, {
+	label: '安装位置',
+	prop: 'deviceLocation',
+	align: 'center',
+	overHidden: true,
+	width: 140
+}, {
+	label: '监控因子',
+	prop: 'alias',
+	align: 'center'
+}, {
+	label: '预警类型',
+	prop: 'alertTypeName',
+	align: 'center'
+}, {
+	label: '预警阈值',
+	prop: 'standardVal',
+	align: 'center'
+}, {
+	label: '开始时间',
+	prop: 'startTime',
+	align: 'center',
+	width: 160
+}, {
+	label: '结束时间',
+	prop: 'endTime',
+	align: 'center',
+	width: 160
+}, {
+	label: '持续时间',
+	prop: 'duration',
+	align: 'center'
+}, {
+	label: '处理时间',
+	prop: 'handleTime',
+	align: 'center',
+	width: 160
+}, {
+	label: '状态',
+	prop: 'status',
+	dicData: [{
+		label: '已处理',
+		value: 1
+	}, {
+		label: '未处理',
+		value: 0
+	}],
+	align: 'center'
+}]
+
+export const handlecolumn = [{
+	label: '区域',
+	prop: 'area',
+	align: 'center'
+}, {
+	label: '站点',
+	prop: 'siteName',
+	align: 'center'
+}, {
+	label: '机组',
+	prop: 'groupName',
+	align: 'center',
+	hide: true
+}, {
+	label: '设备编码',
+	prop: 'deviceSn',
+	align: 'center'
+}, {
+	label: '安装位置',
+	prop: 'deviceLocation',
+	align: 'center'
+}, {
+	label: '监控因子',
+	prop: 'alias',
+	align: 'center'
+}, {
+	label: '预警类型',
+	prop: 'alertTypeName',
+	align: 'center'
+}, {
+	label: '预警阈值',
+	prop: 'standardVal',
+	align: 'center'
+}, {
+	label: '开始时间',
+	prop: 'startTime',
+	align: 'center'
+}, {
+	label: '结束时间',
+	prop: 'endTime',
+	align: 'center'
+}, {
+	label: '持续时间',
+	prop: 'duration',
+	align: 'center'
+}, {
+	label: '处理时间',
+	prop: 'handleTime',
+	align: 'center'
+}]
